@@ -457,6 +457,10 @@
       url: {
         type: String,
       },
+      headers: {
+        type: Object,
+        default: {},
+      },
       text: {
         type:String,
         default:  'Upload Image' 
@@ -698,7 +702,7 @@
 
         }
         this. __dispatch('imageuploading',this.files);
-        xhr('POST',this.url,{},data,function(res) {
+        xhr('POST',this.url,this.headers,data,function(res) {
           if(typeof callback === 'function') {
             callback();
           }
